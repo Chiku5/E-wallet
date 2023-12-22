@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <title>E-Wallet</title>
+      <link rel="icon" type="image/png" href="/rupee.png"/>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+        <!-- navbar-start  -->
+        <div class="navi">
+            <div class="logo-section">
+              <i class="fa-solid fa-indian-rupee-sign"></i>
+              <label for="" class="logo">E-<span>Wallet</span></label>
+            </div>
+            <ul>
+            <li><a href="/" class="navLink"><i class="fa-solid fa-house" style="color: rgb(41, 189, 0)"></i> HOME</a></li>
+            <li><a href="#"><i class="fa-solid fa-briefcase"></i> </i>BUSINESS SOLUTIONS</a></li>
+            <li><a href="#"><i class="fa-solid fa-magnifying-glass"> </i> ABOUT US</a></li>
+            <li><a href="#"><i class="fa-solid fa-blog"></i></i> BLOG</a></li>
+            <li><a href="#"><i class="fa-solid fa-shield"></i></i> TRUST AND SAFETY</a></li>
+            <li><a href="#"><i class="fa-regular fa-comment"></i> CONTATC US</a></li>
+            </ul>
+            <button data-toggle="modal" data-target="#modelLogin"><i class="fa-solid fa-user"></i>Sign In</button>
+            <label id="icon">
+            <i class="fas fa-bars"></i>
+            </label>
+          </div>
+        <!-- navbar ends   -->
+        <!-- modal-sign in   -->
+        <div class="modal fade" id="modelLogin" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title">User Login</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                          </button>
+                  </div>
+                  <div class="modal-body">
+                    <form action="/login" method="post">
+                      <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="number" 
+                          class="form-control" name="phone" id="phone" aria-describedby="helpId" placeholder="">
+                        <small id="helpId" class="form-text text-danger">*</small>
+                      </div>
+                      <div class="form-group">
+                          <label for="">Password</label>
+                          <input type="password"
+                            class="form-control" name="password" id="" aria-describedby="helpId" placeholder="">
+                          <small id="helpId" class="form-text text-danger">*</small>
+                        </div>
+                        <button type="submit" class="btn btn-success" onclick="return validate()">Login</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modelSignup" data-dismiss="modal">New User?</button>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                      
+                  </div>
+              </div>
+          </div>
+        </div>
+        <!-- modal-sign in ends   -->
+        <script>
+          let phone= document.getElementById('phone').value;
+          function validate(){
+            if(phone.length>10 && phone.length<10){
+              alert("Phone no must be of 10 digits!");
+              return false;
+            }
+            else{
+              return true;
+            }
+          }
+        </script>
+        <!-- modal sign up  -->
+        <div class="modal fade" id="modelSignup" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title">User Registration</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                          </button>
+                  </div>
+                  <div class="modal-body">
+                    <form action="/signup" method="post">
+                       <div class="form-group">
+                          <label for="">Name</label>
+                          <input type="text"
+                            class="form-control" name="name" id="" aria-describedby="helpId" placeholder="">
+                          <small id="helpId" class="form-text text-danger">*</small>
+                        </div>
+                       <div class="form-group">
+                          <label for="phone2">Phone</label>
+                          <input type="number"
+                            class="form-control" name="phone" id="phone2" aria-describedby="helpId" placeholder="">
+                          <small id="helpId" class="form-text text-danger">*</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Password</label>
+                            <input type="password"
+                              class="form-control" name="password" id="" aria-describedby="helpId" placeholder="">
+                            <small id="helpId" class="form-text text-muted">*</small>
+                        </div>
+                          <button type="submit" class="btn btn-success" onclick="return validate2()">Signup</button>
+                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modelLogin" data-dismiss="modal">Already Have Acc?</button>
+                    </form>
+                        </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                      
+                  </div>
+              </div>
+          </div>
+        </div>
+        <!-- modal sign up ends  -->
+        <script>
+          let phone2= document.getElementById('phone2').value;
+          function validate2(){
+            if(phone2.length>10 && phone2.length<10){
+              alert("Phone no must be of 10 digits!");
+              return false;
+            }
+            else{
+              return true;
+            }
+          }
+        </script>
+        <% if(msg!=''){ %>
+          <br><br><br>
+          <div class="alert alert-primary alert-dismissible fade show" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  <span class="sr-only">Close</span>
+              </button>
+              <strong><%= msg %></strong>.
+          </div>
+          <% } %>
+        <!-- carousel  -->
+        <div class="slider">
+            <img id="slide-img" src="/banner1.png" alt="img1" />
+            <div class="icons">
+              <i onclick="backword()" class="fa-solid fa-circle-chevron-left sld-btn"></i>
+              <i onclick="forword()" class="fa-solid fa-circle-chevron-right sld-btn"></i>
+            </div>
+            <div class="radio">
+              <input
+                type="radio"
+                id="r1"
+                name="check_radio"
+                checked
+                onclick="check('0')"
+              />
+              <input type="radio" id="r2" name="check_radio" onclick="check('1')" />
+              <input type="radio" id="r3" name="check_radio" onclick="check('2')" />
+              <input type="radio" id="r4" name="check_radio" onclick="check('3')" />
+            </div>
+        </div>
+        <!-- carousel ends  -->
+        <h2 class="recharge">
+          Reacharge and Pay Bills on E-wallet
+        </h2>
+        <!-- info  -->
+        <div class="info">
+            <div class="info-box">
+              <i class="fa-solid fa-mobile"></i>
+              <p>RECHARGE</p>
+              <strong>PREPAID MOIBLE</strong>
+            </div>
+            <div class="info-box">
+              <i class="fa-regular fa-lightbulb"></i>
+              <p>PAY</p>
+              <strong>ELECTRICITY BILL</strong>
+            </div>
+            <div class="info-box">
+              <i class="fa-solid fa-satellite-dish"></i>
+              <p> RECHARGE </p>
+              <strong>DTH Connection</strong>
+            </div>
+            <div class="info-box">
+              <i class="fa-solid fa-tower-broadcast"></i>
+              <p>PAY</p>
+              <strong>BROADBAND BILLS</strong>
+            </div>
+            <div class="info-box">
+              <i class="fa-solid fa-car"></i>
+              <p>RECHARGE</p>
+              <strong> FASTag </strong>
+            </div>
+          </div>
+        <!-- info ends  -->
+        <h2 class="recharge">
+          BOOK and Buy on E-wallet
+        </h2>
+        <!-- info  -->
+        <div class="info">
+            <div class="info-box">
+              <i class="fa-solid fa-ticket"></i>
+              <strong>MOVIE TICKETS</strong>
+            </div>
+            <div class="info-box">
+              <i class="fa-solid fa-plane-departure"></i>
+              <strong>FLIGHT TICKETS</strong>
+            </div>
+            <div class="info-box">
+              <i class="fa-solid fa-bus"></i>
+              <strong>BUS TICEKTS</strong>
+            </div>
+            <div class="info-box">
+              <i class="fa-solid fa-train-tram"></i>
+              <strong>TRAIN TICEKTS</strong>
+            </div>
+            <div class="info-box">
+              <i class="fa-solid fa-arrow-trend-up"></i>
+              <strong>INVEST IN STOCKS </strong>
+            </div>
+          </div>
+        <!-- info ends  -->
+         <div class="bord">
+          <p></p>
+         </div> 
+        <!-- download-section-start    -->
+      <div class="download">
+        <div class="display-box">
+          <h1>App Download will be available soon! </h1>
+          <div class="download-box">
+             <a class="down" href="#" id="gp">
+              <i class="fa-brands fa-google-play"></i>
+              <div class="line">
+                available on <br>
+                <strong>Google Play Store</strong>
+              </div>
+            </a>
+             <a class="down" href="#" id="ap">
+              <i class="fa-brands fa-apple"></i>
+              <div class="line">
+                available on <br>
+                <strong>App Store Store</strong>
+              </div>
+            </a>
+             <a class="down" href="#">
+              <i class="fa-brands fa-windows" id="wp"></i>
+              <div class="line">
+                available on <br>
+                <strong>Windows Store</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    <!-- download-section-ends    -->
+    <script src="/script.js"></script>
+    <!-- script for slider  -->
+    <script>
+            function forword() {
+              document.getElementById("slide-img").src = myArr[pos];
+      
+              if (pos == 0) {
+                document.getElementById("r1").checked = true;
+                document.getElementById("r2").checked = false;
+                document.getElementById("r3").checked = false;
+                document.getElementById("r4").checked = false;
+              }
+      
+              if (pos == 1) {
+                document.getElementById("r1").checked = false;
+                document.getElementById("r2").checked = true;
+                document.getElementById("r3").checked = false;
+                document.getElementById("r4").checked = false;
+              }
+      
+              if (pos == 2) {
+                document.getElementById("r1").checked = false;
+                document.getElementById("r2").checked = false;
+                document.getElementById("r3").checked = true;
+                document.getElementById("r4").checked = false;
+              }
+      
+              if (pos == 3) {
+                document.getElementById("r1").checked = false;
+                document.getElementById("r2").checked = false;
+                document.getElementById("r3").checked = false;
+                document.getElementById("r4").checked = true;
+              }
+              if (pos < myArr.length - 1) {
+                pos++;
+              } else {
+                pos = 0;
+              }
+              setTimeout("forword()", 4000);
+            }
+            forword();
+    </script>
+    <!-- script for slider ends -->    
+
+         <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+   </body>
+</html>
